@@ -1,4 +1,4 @@
-name = "miaoyou-copy"
+name = "myou-mail"
 main = "worker/src/index.ts"
 
 # 打包配置
@@ -10,24 +10,22 @@ keep_vars = true
 # 启用 D1 数据库
 [[d1_databases]]
 binding = "DB"
-database_name = "miaoyou"
-database_id = "7efbe74a-e91d-4b6a-9535-52bf08377d43"
+database_name = "${D1_DATABASE_NAME}"
+database_id = "${D1_DATABASE_ID}"
 
 # 设置域名
 [vars]
 # 邮箱后缀（后端唯一数据源，前端通过 /api/config 获取）
-ALLOWED_EMAIL_DOMAINS = "alice7.eu.org,foodyard.eu.org,newgames.eu.org"
+ALLOWED_EMAIL_DOMAINS = "example.com,another.com"
 # 向后兼容旧变量名（建议只保留 ALLOWED_EMAIL_DOMAINS）
-VITE_EMAIL_DOMAIN = "alice7.eu.org,foodyard.eu.org,newgames.eu.org"
-VITE_EXTERNAL_LINKS = "临时Gmail邮箱|https://smailpro.com/temporary-email,真实地址生成器|https://ip.alice7.eu.org/"
-# VITE_EXTERNAL_LINKS 也可以在 Cloudflare Dashboard → Workers → 环境变量中覆盖
-# 格式：标签|URL,标签|URL（最多5个）
-
+VITE_EMAIL_DOMAIN = "example.com,another.com"
+# 外部链接（格式：标签|URL,标签|URL）
+VITE_EXTERNAL_LINKS = "临时Gmail邮箱1|https://smailpro.com/temporary-email,临时Gmail邮箱2|https://temp.tf"
 # 双站点模式：temp=临时邮箱站，perm=匿名/永久邮箱站
 VITE_SITE_MODE = "perm"
-VITE_SITE_NAME = "秒邮-永久匿名邮箱"
+VITE_SITE_NAME = "秒邮-匿名邮箱"
 # 标题跳转到另一个站点（留空则标题链接回首页）
-VITE_OTHER_SITE_URL = ""
+VITE_OTHER_SITE_URL = "https://example.com"
 VITE_OTHER_SITE_LABEL = "切换站点"
 
 # CORS 额外白名单（逗号分隔；同源、localhost、*.pages.dev 已默认放行）
