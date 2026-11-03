@@ -29,7 +29,7 @@ VITE_OTHER_SITE_URL = "https://example.com"
 VITE_OTHER_SITE_LABEL = "切换站点"
 
 # CORS 额外白名单（逗号分隔；同源、localhost、*.pages.dev 已默认放行）
-ALLOWED_ORIGINS = ""
+ALLOWED_ORIGINS = "https://example.com,https://another.com"
 
 # 以下密钥不要写在 wrangler.toml，使用 Secret 注入：
 #   wrangler secret put MAIL_ENCRYPTION_KEY   # D1 敏感字段加密主密钥（>=16 字符）
