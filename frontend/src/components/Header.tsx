@@ -169,7 +169,7 @@ const ExternalLinksDropdown: React.FC = () => {
       </button>
       {open && (
         <div className="absolute right-0 top-full mt-1 w-56 rounded-xl bg-popover border shadow-xl z-50 py-1.5 overflow-hidden">
-          {links.slice(0, 5).map((link, i) => (
+          {links.map((link, i) => (
             <a
               key={i}
               href={link.url}
