@@ -1,25 +1,30 @@
-# <div align="center">🚀 秒邮 - 永久匿名邮箱服务</div>
-
 <div align="center">
-  <p>
-    <a href="./README.en.md">English</a> | <strong>简体中文</strong>
-  </p>
 
-  <p>如果这个项目对您有帮助，请考虑给它一个 ⭐️ Star ⭐️，这将是对我最大的鼓励！</p>
+# 秒邮（Myou Mail） | 双站点临时/永久匿名邮箱
 
-  <img src="frontend/public/favicon.svg" alt="秒邮 Logo" width="120" height="120" style="background-color: #4f46e5; padding: 20px; border-radius: 12px; margin: 20px 0;">
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![Built with Cloudflare Workers](https://img.shields.io/badge/Built%20with-Cloudflare%20Workers-F38020?logo=cloudflare&logoColor=white)](https://developers.cloudflare.com/workers/)
+[![Built with Cloudflare Pages](https://img.shields.io/badge/Built%20with-Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white)](https://developers.cloudflare.com/pages/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Hono](https://img.shields.io/badge/Hono-E36002?logo=hono&logoColor=white)](https://hono.dev/)
+
+[简体中文](./README.md) | [English](./README.en.md)
+
+<p>同一个仓库，一套代码，部署出 <b>两个独立网站</b>：默认打开 <b>临时邮箱</b>，点击顶部标题一键跳转 <b>永久/匿名邮箱</b></p>
+
+<a href="https://deploy.workers.cloudflare.com/?url=https://github.com/makeboku/myou">
+  <img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare Workers">
+</a>
+
+<p><b>⚡ 仅一键部署后端 Worker</b> · 前端需在 Cloudflare 网页端创建 2 个 Pages 项目</p>
+
+<p>如果这个项目对您有帮助，请考虑给它一个 ⭐️ Star ⭐️，这将是对我最大的鼓励！</p>
+
+<img src="frontend/public/favicon.svg" alt="秒邮 Logo" width="120" height="120">
 
   <h3>💌 安全、简单、永久有效的匿名邮箱服务</h3>
-
-  <p>
-    <a href="#features"><strong>✨ 功能特点</strong></a> •
-    <a href="#screenshots"><strong>📸 界面预览</strong></a> •
-    <a href="#deployment"><strong>🚀 快速部署</strong></a> •
-    <a href="#env-vars"><strong>🔧 环境变量</strong></a> •
-    <a href="#development"><strong>💻 本地开发</strong></a> •
-    <a href="#tech-stack"><strong>🔧 技术栈</strong></a> •
-    <a href="#project-structure"><strong>📁 项目结构</strong></a>
-  </p>
 
 </div>
 
