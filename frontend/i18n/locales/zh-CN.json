@@ -1,0 +1,578 @@
+{
+  "app": {
+    "title": "秒邮-永久匿名邮箱"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "出错了",
+    "copy": "复制",
+    "copied": "已复制",
+    "copyFailed": "复制失败",
+    "delete": "删除",
+    "refresh": "刷新",
+    "create": "创建",
+    "cancel": "取消",
+    "confirm": "确认",
+    "submit": "提交",
+    "save": "保存",
+    "close": "关闭",
+    "back": "返回",
+    "success": "成功",
+    "failed": "失败",
+    "unknown": "未知",
+    "empty": "暂无数据",
+    "blog": "博客",
+    "youtube": "油管频道",
+    "xugouMonitor": "xugou监控",
+    "privacyPolicy": "隐私政策",
+    "terms": "使用条款",
+    "about": "关于我们"
+  },
+  "mailbox": {
+    "createRandom": "创建随机邮箱",
+    "createCustom": "创建自定义邮箱",
+    "create": "创建",
+    "createAndCopy": "创建并复制帐号",
+    "createPasswordTip": "请务必保存您的用户名和密码，这是找回邮箱的唯一凭证",
+    "address": "邮箱地址",
+    "password": "密码",
+    "login": "登录邮箱",
+    "loginRequiredFields": "邮箱地址和密码不能为空",
+    "loginSuccess": "登录成功",
+    "loginFailed": "邮箱地址或密码错误",
+    "customAddress": "自定义地址",
+    "customAddressPlaceholder": "输入自定义地址",
+    "addressPlaceholder": "邮箱地址（如 abc123456789@example.com）",
+    "customizePassword": "自定义密码",
+    "randomPassword": "随机密码",
+    "passwordPlaceholder": "输入密码（至少6位）",
+    "passwordTooShort": "密码长度至少需要 6 个字符",
+    "passwordMinLength": 6,
+    "copyAccountInfo": "复制完整帐号信息",
+    "copyAccountInfoSuccess": "完整帐号信息已复制",
+    "accountInfoTitle": "秒邮-永久匿名邮箱",
+    "username": "用户名",
+    "expiresIn": "有效期",
+    "expiresAt": "过期时间",
+    "created": "创建时间",
+    "timeLeft": "剩余时间",
+    "expired": "已过期",
+    "expiresInTime": "{{hours}}小时{{minutes}}分钟",
+    "expiresInMinutes": "{{minutes}}分钟",
+    "copySuccess": "邮箱地址已复制到剪贴板",
+    "copyFailed": "复制邮箱地址失败",
+    "createSuccess": "邮箱创建成功，帐号信息已复制，请直接粘帖保存。",
+    "createFailed": "邮箱创建失败",
+    "deleteSuccess": "邮箱删除成功",
+    "deleteFailed": "邮箱删除失败",
+    "delete": "永久删除邮箱",
+    "confirmDelete": "确定要删除当前邮箱吗？删除后邮箱不可再登录。",
+    "invalidAddress": "无效的邮箱地址",
+    "addressExists": "邮箱地址已存在",
+    "refresh": "更换邮箱",
+    "refreshSuccess": "邮箱更换成功",
+    "refreshFailed": "邮箱更换失败",
+    "customize": "自定义邮箱",
+    "notFound": "邮箱不存在或已过期",
+    "creatingNew": "正在创建新邮箱...",
+    "switch": "切换邮箱",
+    "switchSuccess": "邮箱切换成功",
+    "savedMailboxes": "已保存的邮箱",
+    "confirmDeleteMailbox": "您确定要删除这个已保存的邮箱吗？",
+    "deleteSavedSuccess": "已保存的邮箱删除成功",
+    "confirmClearAllMailboxes": "您确定要清空所有已保存的邮箱吗？（当前使用的邮箱不会被删除）",
+    "clearAll": "全部清除",
+    "clearAllSuccess": "已清空所有保存的邮箱",
+    "clearAllFailed": "部分邮箱清空失败 ({{count}}个)",
+    "showPassword": "显示密码",
+    "hidePassword": "隐藏密码",
+    "copyPassword": "复制密码",
+    "copyPasswordSuccess": "密码已复制到剪贴板",
+    "copyPasswordFailed": "复制密码失败",
+    "savePassword": "请保存您的密码",
+    "savePasswordWarning": "此密码只显示一次，请务必保存！下次登录需要使用邮箱地址和密码。",
+    "copyMailbox": "复制邮箱地址",
+    "copyNew": "复制新邮箱",
+    "createNew": "创建新的邮箱",
+    "logout": "注销登录",
+    "logoutSuccess": "已退出登录"
+  },
+  "email": {
+    "inbox": "收件箱",
+    "refresh": "刷新收件箱",
+    "refreshSuccess": "邮件列表已刷新",
+    "autoRefresh": "自动刷新",
+    "autoRefreshOn": "自动刷新: 开",
+    "autoRefreshOff": "自动刷新: 关",
+    "from": "发件人",
+    "to": "收件人",
+    "subject": "主题",
+    "date": "日期",
+    "content": "内容",
+    "attachments": "附件",
+    "attachmentsNotSupported": "附件暂不支持下载",
+    "noAttachments": "没有附件",
+    "download": "下载",
+    "downloading": "准备中...",
+    "videoNotSupported": "您的浏览器不支持视频播放",
+    "audioNotSupported": "您的浏览器不支持音频播放",
+    "noSubject": "无主题",
+    "noContent": "无内容",
+    "emptyInbox": "邮箱为空",
+    "waitingForEmails": "等待接收邮件...",
+    "refreshing": "正在刷新...",
+    "deleteSuccess": "邮件删除成功",
+    "deleteFailed": "邮件删除失败",
+    "fetchFailed": "获取邮件失败",
+    "notFound": "邮件不存在或已被删除",
+    "selectEmailPrompt": "请选择一封邮件查看详情",
+    "message": "封邮件",
+    "messages": "封邮件",
+    "dear": "尊敬的",
+    "inboxBelow": "你的收件箱如下：",
+    "randomAlias": "你的随机化名为",
+    "firstName": "名",
+    "lastName": "姓",
+    "regInfo": "可用的随机虚拟身份",
+    "selectCountry": "请选择国家：",
+    "fullName": "姓名",
+    "username": "用户名",
+    "copyFirstName": "复制名",
+    "copyLastName": "复制姓",
+    "copyFullName": "复制姓名",
+    "copyUsername": "复制用户名（小写+数字）",
+    "copiedFirstName": "名已复制",
+    "copiedLastName": "姓已复制",
+    "copiedFullName": "姓名已复制",
+    "copiedUsername": "用户名已复制",
+    "copiedPassword": "密码已复制",
+    "markAsUnread": "标记为未读",
+    "markAsUnreadHint": "标记为未读后最多保存90天",
+    "markedAsUnread": "邮件已标记为未读",
+    "markAsUnreadFailed": "标记为未读失败",
+    "selectAll": "全选",
+    "selectedCount": "已选 {{count}} 封",
+    "batchDelete": "批量删除",
+    "batchDeleteConfirm": "确定要删除选中的 {{count}} 封邮件吗？",
+    "batchDeleteSuccess": "成功删除 {{count}} 封邮件",
+    "batchDeleteFailed": "批量删除失败",
+    "batchMarkAsRead": "标为已读",
+    "batchMarkAsReadSuccess": "成功标记 {{count}} 封邮件为已读",
+    "batchMarkAsReadFailed": "批量标记已读失败",
+    "batchMarkAsUnread": "标为未读",
+    "batchMarkAsUnreadSuccess": "成功标记 {{count}} 封邮件为未读",
+    "batchMarkAsUnreadFailed": "批量标记未读失败",
+    "showMore": "更多",
+    "userInfo": "身份信息",
+    "sectionPersonal": "个人信息",
+    "sectionAddress": "地址",
+    "sectionContact": "联系方式",
+    "sectionAccount": "账号",
+    "sectionWork": "工作",
+    "sectionFinancial": "财务",
+    "gender": "性别",
+    "birthday": "生日",
+    "title": "称谓",
+    "streetAddress": "街道",
+    "city": "城市",
+    "state": "州",
+    "zipCode": "邮编",
+    "telephone": "电话",
+    "password": "密码",
+    "company": "公司",
+    "occupation": "职业",
+    "ssn": "社保号",
+    "creditCardType": "信用卡类型",
+    "creditCardNumber": "信用卡号",
+    "cvv2": "CVV2",
+    "expires": "有效期",
+    "regenerate": "随机生成",
+    "fullAddress": "完整地址",
+    "copyFullAddress": "复制完整地址",
+    "viewOnGoogleMaps": "在 Google Maps 中查看",
+    "country": "国家",
+    "internal": "站内",
+    "enterChat": "进入聊天"
+  },
+  "settings": {
+    "language": "语言",
+    "toggleTheme": "切换主题"
+  },
+  "errors": {
+    "generic": "发生错误，请稍后重试",
+    "notFound": "未找到请求的资源"
+  },
+  "intro": {
+    "hero": {
+      "title": "你的专属永久匿名邮箱",
+      "subtitle": "无需手机号，无需个人信息，一键创建永久邮箱，随时登录找回",
+      "createBtn": "创建新的邮箱",
+      "loginBtn": "已有账号登录",
+      "stats": {
+        "permanent": "永久有效",
+        "secure": "独立密码",
+        "anonymous": "完全匿名"
+      }
+    },
+    "temp": {
+      "title": "临时邮箱",
+      "subtitle": "无需注册，立即获得临时邮箱地址，已读邮件 24 小时后自动清理",
+      "createBtn": "一键生成临时邮箱",
+      "badgeInstant": "即用即走",
+      "badgePrivacy": "隐私保护",
+      "badgeAutoClean": "自动清理"
+    },
+    "features": {
+      "title": "为什么选择秒邮？",
+      "subtitle": "安全、简单、即用即走的邮箱服务",
+      "privacy": {
+        "title": "隐私保护",
+        "description": "无需注册个人信息，不收集数据，完全匿名使用"
+      },
+      "permanent": {
+        "title": "永久有效",
+        "description": "邮箱账号永久有效，配合独立密码可随时跨设备登录找回"
+      },
+      "anonymous": {
+        "title": "匿名接收",
+        "description": "保护真实邮箱地址，防止信息泄露和骚扰"
+      },
+      "secure": {
+        "title": "安全可控",
+        "description": "生成高强度随机密码，支持自定义创建，数据安全自己掌握"
+      }
+    },
+    "steps": {
+      "title": "如何使用秒邮",
+      "subtitle": "三步开始使用，全程不超过30秒",
+      "step1": {
+        "title": "创建邮箱",
+        "description": "点击创建按钮，系统自动生成唯一的邮箱地址和30位高强度密码"
+      },
+      "step2": {
+        "title": "保存凭证",
+        "description": "点击一键复制，将邮箱地址和密码保存到安全的地方，这是找回的唯一凭证"
+      },
+      "step3": {
+        "title": "随时使用",
+        "description": "在任何设备、任何浏览器，输入完整邮箱地址和密码即可登录使用"
+      }
+    },
+    "useCases": {
+      "title": "使用场景",
+      "subtitle": "秒邮适合多种场景，保护您的数字隐私",
+      "verification": {
+        "title": "网站注册",
+        "description": "注册各类网站账号，接收验证码和确认邮件"
+      },
+      "downloads": {
+        "title": "资源获取",
+        "description": "下载软件、文档资源时避免营销邮件轰炸"
+      },
+      "privacy": {
+        "title": "隐私保护",
+        "description": "保护私人邮箱，避免垃圾邮件和隐私泄露风险"
+      },
+      "testing": {
+        "title": "开发测试",
+        "description": "开发人员测试邮件发送功能，无需使用真实邮箱"
+      },
+      "forum": {
+        "title": "论坛发帖",
+        "description": "在各类论坛、社区注册账号，避免收到垃圾邮件"
+      },
+      "shopping": {
+        "title": "网购优惠",
+        "description": "注册电商平台获取首单优惠，保护主邮箱免受营销骚扰"
+      }
+    },
+    "security": {
+      "title": "安全提示",
+      "subtitle": "为了保护您的账号安全，请阅读以下提示",
+      "warning1": "请务必妥善保管您的邮箱地址和密码，这是找回账号的唯一凭证",
+      "warning2": "邮箱内容可能被他人访问，请避免包含个人隐私信息",
+      "warning3": "请勿在密码输入框中填写您的真实账户密码，以防泄露",
+      "warning4": "系统会自动清理24小时前的已读邮件，未读邮件最多保存90天。标记为未读的重要邮件也请在90天内保存好。"
+    },
+    "faq": {
+      "title": "常见问题",
+      "subtitle": "关于秒邮的常见疑问解答",
+      "q1": {
+        "question": "邮箱账号会过期吗？",
+        "answer": "不会。秒邮创建的邮箱账号永久有效，您可以随时使用用户名和密码登录。"
+      },
+      "q2": {
+        "question": "换设备后还能登录吗？",
+        "answer": "可以。只要您记得邮箱地址和创建时分配的密码，可以在任何浏览器登录。"
+      },
+      "q3": {
+        "question": "邮件会被保存多久？",
+        "answer": "已读邮件超过24小时自动删除，未读邮件最多保存90天后自动删除。请及时保存重要邮件内容。"
+      },
+      "q4": {
+        "question": "忘记密码怎么办？",
+        "answer": "很抱歉，出于安全考虑，我们无法提供密码找回服务。请务必备份您的邮箱地址和密码。"
+      }
+    },
+    "cta": {
+      "title": "准备好开始了吗？",
+      "subtitle": "立即创建您的专属永久匿名邮箱，保护您的数字隐私",
+      "btn": "立即免费创建"
+    }
+  },
+  "terms": {
+    "title": "使用条款",
+    "subtitle": "请在使用本永久匿名邮箱服务前仔细阅读以下条款，使用即视为同意本协议。",
+    "section1": {
+      "title": "1. 服务说明",
+      "item1": "本服务为用户提供永久匿名、匿名的电子邮箱地址，用于接收邮件、验证码等信息。",
+      "item2": "所有邮箱及邮件内容均为永久匿名存储，过期后自动删除，无法恢复。"
+    },
+    "section2": {
+      "title": "2. 用户责任",
+      "item1": "用户应遵守相关法律法规，不得利用本服务从事任何违法、违规或有害的活动。",
+      "item2": "用户应自行承担使用本服务过程中产生的全部风险和责任。"
+    },
+    "section3": {
+      "title": "3. 禁止行为",
+      "item1": "不得用于发送、接收垃圾邮件、恶意软件、钓鱼信息等非法内容。",
+      "item2": "不得用于骚扰、欺诈、侵犯他人隐私或知识产权等行为。",
+      "item3": "不得尝试攻击、干扰或破坏本服务的正常运行。"
+    },
+    "section4": {
+      "title": "4. 免责声明",
+      "item1": "本服务为免费开源项目，按\"现状\"提供，不对服务的可用性、稳定性或数据完整性作任何承诺。",
+      "item2": "因使用本服务导致的任何直接或间接损失，开发者不承担任何责任。"
+    },
+    "section5": {
+      "title": "5. 服务变更与终止",
+      "item1": "我们有权随时对服务内容进行调整、暂停或终止，无需事先通知用户。",
+      "item2": "如发现用户存在违规行为，有权限制或终止其使用本服务。"
+    },
+    "section6": {
+      "title": "6. 法律适用",
+      "item1": "本使用条款的解释与适用均受开源项目托管地相关法律法规管辖。"
+    },
+    "section7": {
+      "title": "7. 条款变更",
+      "item1": "我们有权根据需要随时修改本使用条款，变更内容将在页面显著位置公告。"
+    },
+    "conclusion": "感谢您使用秒邮永久匿名邮箱服务！"
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "intro": "我们非常重视您的隐私保护。本隐私政策说明了我们如何收集、使用和保护您的信息。",
+    "section1": {
+      "title": "信息收集",
+      "item1": "我们不要求用户注册或提供个人信息。",
+      "item2": "我们不收集用户的姓名、邮箱地址或其他个人身份信息。",
+      "item3": "我们可能收集匿名的使用统计信息，如访问次数、使用时间等，用于改善服务质量。"
+    },
+    "section2": {
+      "title": "信息使用",
+      "item1": "永久匿名邮箱地址仅用于接收邮件，不会被用于其他目的。",
+      "item2": "我们不会向第三方出售、交易或转让您的任何信息。",
+      "item3": "收集的匿名统计信息仅用于分析和改善服务。"
+    },
+    "section3": {
+      "title": "数据存储",
+      "item1": "所有邮件内容均永久匿名存储在内存中，不会持久化到磁盘。",
+      "item2": "邮箱及其内容在24小时后自动删除，无法恢复。",
+      "item3": "我们不保留任何用户数据的备份。"
+    },
+    "section4": {
+      "title": "第三方服务",
+      "item1": "本网站可能使用第三方分析工具（如Google Analytics）来了解网站使用情况。",
+      "item2": "这些第三方服务有自己的隐私政策，我们建议您查阅相关政策。",
+      "item3": "我们不对第三方服务的隐私做法负责。"
+    },
+    "section5": {
+      "title": "Cookies使用",
+      "item1": "我们可能使用Cookies来改善用户体验，如保存语言偏好。",
+      "item2": "您可以通过浏览器设置禁用Cookies，但这可能影响网站功能。",
+      "item3": "我们不使用Cookies跟踪个人身份信息。"
+    },
+    "section6": {
+      "title": "安全措施",
+      "item1": "我们采用适当的技术和管理措施保护数据安全。",
+      "item2": "所有数据传输均通过HTTPS加密。",
+      "item3": "尽管我们努力保护数据安全，但无法保证绝对安全。"
+    },
+    "section7": {
+      "title": "政策变更",
+      "item1": "我们可能会不时更新本隐私政策。",
+      "item2": "重大变更将在网站上显著位置公告。",
+      "item3": "继续使用服务即表示您接受更新后的政策。"
+    },
+    "section8": {
+      "title": "联系我们",
+      "item1": "如果您对本隐私政策有任何疑问，请通过GitHub Issues联系我们。"
+    },
+    "conclusion": "感谢您信任并使用秒邮永久匿名邮箱服务！"
+  },
+  "chat": {
+    "title": "AI 助手",
+    "placeholder": "输入消息，按 Enter 发送...",
+    "send": "发送",
+    "clear": "清空对话",
+    "thinking": "思考中...",
+    "welcome": "你好！我是 AI 助手，有什么可以帮你的？",
+    "error": "连接失败，请重试",
+    "copy": "复制"
+  },
+  "internalChat": {
+    "title": "站内聊天",
+    "intro": "输入对方在秒邮注册的邮箱地址，即可与其站内实时聊天。",
+    "conversations": "最近的对话",
+    "noConversations": "暂无对话，在下方输入对方邮箱地址即可开始聊天",
+    "myAddress": "我的邮箱",
+    "peerPlaceholder": "输入对方的邮箱地址，如 name@alice7.eu.org",
+    "peerHint": "对方必须已在秒邮注册该邮箱，且使用密码登录后才能收发",
+    "start": "开始聊天",
+    "back": "返回",
+    "online": "站内在线",
+    "messages": "条消息",
+    "empty": "还没有消息，发一条打个招呼吧",
+    "inputPlaceholder": "输入消息，按 Enter 发送...",
+    "send": "发送",
+    "sendFailed": "发送失败，请确认对方邮箱存在",
+    "selfError": "不能给自己发送站内消息",
+    "peer": "对方",
+    "me": "我",
+    "exportTitle": "站内聊天记录导出",
+    "export": "导出",
+    "exportSuccess": "聊天记录已导出",
+    "exportFailed": "导出失败",
+    "clear": "清空",
+    "clear1h": "清空最近 1 小时",
+    "clear24h": "清空最近 24 小时",
+    "clearAll": "清空全部",
+    "clearAllConfirm": "确定清空与该用户的所有站内聊天记录吗？此操作双方均不可恢复。",
+    "clearHoursConfirm": "确定清空最近 {{hours}} 小时的站内聊天记录吗？此操作双方均不可恢复。",
+    "clearSuccess": "聊天记录已清空",
+    "clearFailed": "清空失败",
+    "read": "已读",
+    "readAt": "对方于 {{time}} 已读",
+    "delivered": "已送达",
+    "attach": "发送附件",
+    "download": "下载",
+    "downloadFailed": "下载失败",
+    "uploadFailed": "上传失败",
+    "remove": "移除",
+    "fileTooLarge": "超过 10MB 大小限制",
+    "maxAttachments": "每条消息最多 5 个附件",
+    "emoji": "表情",
+    "copy": "复制",
+    "copied": "已复制到剪贴板",
+    "copyFailed": "复制失败",
+    "edit": "编辑",
+    "delete": "删除",
+    "edited": "已编辑",
+    "cancel": "取消",
+    "confirm": "确定",
+    "editPlaceholder": "编辑消息内容...",
+    "editFailed": "编辑失败",
+    "messageEmpty": "消息内容不能为空",
+    "deleteConfirm": "确定删除这条消息吗？删除后双方都将看不到它",
+    "deleteSuccess": "消息已删除",
+    "deleteFailed": "删除失败",
+    "dropHint": "松开鼠标上传附件",
+    "peerCopy": "点击复制对方邮箱",
+    "sending": "发送中…",
+    "sent": "已发送",
+    "sendFailedShort": "发送失败",
+    "retry": "重试",
+    "remark": "设置昵称备注",
+    "remarkPlaceholder": "输入昵称",
+    "remarkSaved": "昵称已保存",
+    "remarkRemoved": "昵称已清除"
+  },
+  "footer": {
+    "mailboxCount": "已创建 {{count}} 个邮箱"
+  },
+  "about": {
+    "title": "关于我们",
+    "subtitle": "了解秒邮永久匿名邮箱服务的背景和理念。",
+    "intro": {
+      "title": "项目简介",
+      "content": "秒邮是一个开源的永久匿名邮箱服务，旨在为用户提供安全、便捷的永久匿名电子邮箱解决方案。我们致力于保护用户隐私，避免垃圾邮件的困扰。"
+    },
+    "features": {
+      "title": "核心特性",
+      "free": {
+        "title": "完全免费",
+        "desc": "无需注册，无需付费，完全免费使用。"
+      },
+      "instant": {
+        "title": "即时生成",
+        "desc": "一键生成永久匿名邮箱地址，立即可用。"
+      },
+      "autodestroy": {
+        "title": "自动销毁",
+        "desc": "邮箱在24小时后自动销毁，保护隐私。"
+      },
+      "realtime": {
+        "title": "实时接收",
+        "desc": "实时接收邮件，支持自动刷新。"
+      },
+      "opensource": {
+        "title": "开源透明",
+        "desc": "代码完全开源，安全可信。"
+      }
+    },
+    "usecases": {
+      "title": "使用场景",
+      "registration": "网站注册验证",
+      "download": "下载资源验证",
+      "temporary": "永久匿名通信需求",
+      "spam": "避免垃圾邮件"
+    },
+    "tech": {
+      "title": "技术架构",
+      "intro": "秒邮采用现代化的技术栈构建：",
+      "frontend": {
+        "title": "前端",
+        "desc": "React + TypeScript + Tailwind CSS"
+      },
+      "backend": {
+        "title": "后端",
+        "desc": "Honojs + CloudFlare Worker"
+      },
+      "email": {
+        "title": "邮件服务",
+        "desc": "基于 CloudFlare 邮件服务提供免费永久匿名邮箱，稳定可靠"
+      },
+      "storage": {
+        "title": "数据存储",
+        "desc": "内存存储，定时清理"
+      }
+    },
+    "opensource": {
+      "title": "开源信息",
+      "intro": "秒邮是一个完全开源的项目，遵循MIT开源协议。我们欢迎社区贡献代码、提出建议或报告问题。",
+      "github": {
+        "title": "GitHub仓库"
+      },
+      "license": {
+        "title": "许可协议",
+        "desc": "MIT License"
+      },
+      "contribute": {
+        "title": "贡献指南",
+        "desc": "欢迎提交Pull Request和Issue"
+      }
+    },
+    "contact": {
+      "title": "联系我们",
+      "intro": "如果您在使用过程中遇到问题，或者有任何建议和反馈，欢迎通过以下方式联系我们：",
+      "github": {
+        "title": "GitHub Issues",
+        "desc": "在项目仓库中提交Issue"
+      },
+      "email": {
+        "title": "邮箱"
+      }
+    },
+    "conclusion": "感谢您选择秒邮永久匿名邮箱服务！"
+  }
+}

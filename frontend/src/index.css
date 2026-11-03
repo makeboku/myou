@@ -1,0 +1,348 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+ 
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 222.2 47.4% 35%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 20% 38%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 214.3 31.8% 88%;
+    --input: 214.3 31.8% 88%;
+    --ring: 222.2 47.4% 45%;
+ 
+    --radius: 0.75rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+  
+    --card: 222.2 50% 8%;
+    --card-foreground: 210 40% 98%;
+  
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+  
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+  
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+  
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20% 60%;
+  
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+  
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+  
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+ 
+  .starry {
+    --background: 255 30% 6%;
+    --foreground: 210 40% 95%;
+  
+    --card: 250 25% 14%;
+    --card-foreground: 210 40% 95%;
+  
+    --popover: 250 25% 14%;
+    --popover-foreground: 210 40% 95%;
+  
+    --primary: 190 90% 55%;
+    --primary-foreground: 255 30% 6%;
+  
+    --secondary: 250 25% 18%;
+    --secondary-foreground: 210 40% 95%;
+  
+    --muted: 250 20% 16%;
+    --muted-foreground: 215 15% 70%;
+  
+    --accent: 280 60% 45%;
+    --accent-foreground: 210 40% 95%;
+  
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 95%;
+  
+    --border: 250 20% 24%;
+    --input: 250 20% 18%;
+    --ring: 190 90% 55%;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+.starry-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, #0a0e27 0%, #141852 40%, #1a1f5e 70%, #0f1235 100%);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+html.starry .starry-bg {
+  opacity: 1;
+}
+
+/* Static twinkling stars background */
+.starry-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 20% 40%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 30% 10%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 40% 60%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 50% 30%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 70% 15%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1.5px 1.5px at 80% 80%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90% 45%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 15% 75%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 25% 55%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 45% 5%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 55% 50%, rgba(200,220,255,0.9), transparent),
+    radial-gradient(1px 1px at 65% 25%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1.5px 1.5px at 75% 65%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 85% 35%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 95% 90%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1.5px 1.5px at 5% 50%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 48% 72%, rgba(200,220,255,0.6), transparent);
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+.starry-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1.2px 1.2px at 12% 33%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.2px 1.2px at 38% 67%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.2px 1.2px at 63% 22%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.2px 1.2px at 87% 78%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1.2px 1.2px at 42% 12%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1.2px 1.2px at 75% 45%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.2px 1.2px at 18% 82%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.2px 1.2px at 55% 38%, rgba(200,220,255,0.7), transparent);
+  animation: twinkle 6s ease-in-out infinite alternate-reverse;
+}
+
+/* Floating particle layers */
+.starry-particle {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Layer 1: tiny dim dots, slowest */
+.starry-particle-1::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(180, 200, 255, 0.5);
+  box-shadow:
+    5vw  95vh 0 0 rgba(180,200,255,0.4),
+    12vw 80vh 0 0 rgba(200,220,255,0.3),
+    20vw 60vh 0 0 rgba(180,200,255,0.5),
+    28vw 70vh 0 0 rgba(200,220,255,0.3),
+    35vw 85vh 0 0 rgba(180,200,255,0.4),
+    42vw 50vh 0 0 rgba(200,220,255,0.5),
+    50vw 90vh 0 0 rgba(180,200,255,0.3),
+    58vw 65vh 0 0 rgba(200,220,255,0.4),
+    65vw 75vh 0 0 rgba(180,200,255,0.5),
+    72vw 55vh 0 0 rgba(200,220,255,0.3),
+    78vw 88vh 0 0 rgba(180,200,255,0.4),
+    85vw 45vh 0 0 rgba(200,220,255,0.5),
+    92vw 78vh 0 0 rgba(180,200,255,0.3),
+    48vw 30vh 0 0 rgba(200,220,255,0.4);
+  animation: float-up 18s linear infinite;
+}
+
+/* Layer 2: medium dots, medium speed */
+.starry-particle-2::before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(200, 220, 255, 0.7);
+  box-shadow:
+    8vw  92vh 0 0 rgba(200,220,255,0.6),
+    18vw 72vh 0 0 rgba(180,200,255,0.5),
+    25vw 88vh 0 0 rgba(200,220,255,0.7),
+    33vw 58vh 0 0 rgba(220,240,255,0.5),
+    40vw 82vh 0 0 rgba(200,220,255,0.6),
+    48vw 62vh 0 0 rgba(180,200,255,0.7),
+    55vw 78vh 0 0 rgba(200,220,255,0.5),
+    63vw 52vh 0 0 rgba(220,240,255,0.6),
+    70vw 68vh 0 0 rgba(200,220,255,0.7),
+    78vw 86vh 0 0 rgba(180,200,255,0.5),
+    88vw 56vh 0 0 rgba(200,220,255,0.6),
+    95vw 74vh 0 0 rgba(220,240,255,0.5),
+    15vw 42vh 0 0 rgba(200,220,255,0.6),
+    60vw 38vh 0 0 rgba(180,200,255,0.5);
+  animation: float-up 12s linear infinite;
+}
+
+/* Layer 3: larger bright dots, fastest */
+.starry-particle-3::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(220, 235, 255, 0.9);
+  box-shadow:
+    10vw 85vh 0 0 rgba(220,235,255,0.7),
+    22vw 95vh 0 0 rgba(200,220,255,0.6),
+    30vw 65vh 0 0 rgba(220,235,255,0.8),
+    38vw 75vh 0 0 rgba(200,220,255,0.7),
+    45vw 90vh 0 0 rgba(220,235,255,0.6),
+    52vw 70vh 0 0 rgba(200,220,255,0.8),
+    60vw 80vh 0 0 rgba(220,235,255,0.7),
+    68vw 60vh 0 0 rgba(200,220,255,0.6),
+    75vw 87vh 0 0 rgba(220,235,255,0.8),
+    82vw 68vh 0 0 rgba(200,220,255,0.7),
+    90vw 77vh 0 0 rgba(220,235,255,0.6),
+    55vw 48vh 0 0 rgba(200,220,255,0.7),
+    3vw  40vh 0 0 rgba(220,235,255,0.8),
+    40vw 20vh 0 0 rgba(200,220,255,0.7);
+  animation: float-up 7s linear infinite;
+}
+
+/* Staggered animation delays for continuous stream */
+.starry-particle-2::before {
+  animation-delay: -4s;
+}
+.starry-particle-3::before {
+  animation-delay: -2s;
+}
+
+/* Toast notification slide-up animation */
+@keyframes toast-in {
+  0% {
+    transform: translateY(120px) scale(0.3) rotate(-10deg);
+    opacity: 0;
+  }
+  30% {
+    transform: translateY(-20px) scale(1.15) rotate(3deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px) scale(0.95) rotate(-1deg);
+  }
+  70% {
+    transform: translateY(-4px) scale(1.03) rotate(0.5deg);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+.animate-slide-up {
+  animation: toast-in 0.8s cubic-bezier(0.22, 1.5, 0.36, 1) both;
+}
+
+/* Toast exit animation */
+@keyframes toast-exit {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.85);
+  }
+}
+.animate-toast-exit {
+  animation: toast-exit 0.5s ease-in forwards;
+}
+
+/* Particle burst */
+@keyframes particle-burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 50px), var(--ty, -50px)) scale(0);
+  }
+}
+.animate-particle {
+  animation: particle-burst 0.6s ease-out forwards;
+}
+
+
+
+/* Starry theme: override yellow warning card to use theme colors */
+html.starry .security-warning-card {
+  background: hsl(var(--card));
+  border-color: hsl(var(--primary) / 0.3);
+}
+html.starry .security-warning-card .text-base {
+  color: hsl(var(--card-foreground));
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+} 
