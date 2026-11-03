@@ -18,7 +18,7 @@
   <img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare Workers">
 </a>
 
-<p><b>⚡ 仅一键部署后端 Worker</b> · 前端需在 Cloudflare 网页端创建 2 个 Pages 项目</p>
+<p><b>⚡ 仅一键部署后端 Worker · 前端需在 Cloudflare 网页端创建 2 个 Pages 项目</b></p>
 
 <p>如果这个项目对您有帮助，请考虑给它一个 ⭐️ Star ⭐️，这将是对我最大的鼓励！</p>
 
@@ -30,7 +30,7 @@
 
 ## ✨ 项目简介
 
-本项目采用 **`1 个 Cloudflare Worker + 1 个 Cloudflare D1 + 2 个 Cloudflare Pages** 部署方案
+本项目采用 **1 个 Cloudflare Worker + 1 个 Cloudflare D1 + 2 个 Cloudflare Pages** 部署方案
 
 通过环境变量区分站点模式，实现两套完全独立的前端界面，共用同一个后端配置中心。邮箱后缀列表统一由 Worker 的 `/api/config` 接口提供，后续只需修改 Worker 环境变量即可新增、删除邮箱后缀，无需重新构建两个 Pages 项目。
 
@@ -54,7 +54,6 @@
 - **多语言支持** - 中英文切换
 - **响应式设计** - 完美适配 PC、平板、手机
 - **附件支持** - 支持查看、预览及下载邮件附件
-- **Cloudflare 网页端** - 全程均可在网页端完成、极简操作
 
 ---
 
@@ -69,17 +68,10 @@
 </div>
 
 <div style="background-color: #2d2d2d; color: #ffffff; padding: 15px; border-radius: 5px; margin: 15px 0;">
-  <h4>✅ 优点：</h4>
   <ul>
     <li>部署简单，一键完成</li>
     <li>无需修改配置文件</li>
     <li>适合快速体验</li>
-  </ul>
-  
-  <h4>❌ 缺点：</h4>
-  <ul>
-    <li>无法获得后续代码更新</li>
-    <li>需要手动绑定自定义域名</li>
   </ul>
   
   <h4>📋 部署步骤：</h4>
@@ -89,7 +81,7 @@
     <li>填写应用名称和数据库名称</li>
     <li>在高级设置 -> 构建变量中设置：
       <ul>
-        <li><code>VITE_EMAIL_DOMAIN</code>: 您的域名列表，使用 ',' 分割 (例如: mdzz.uk,zaunist.com)</li>
+        <li><code>VITE_EMAIL_DOMAIN</code>: 您的域名列表，使用 ',' 分割 (例如: example.com,another.com)</li>
       </ul>
     </li>
     <li>点击"创建和部署"</li>
@@ -97,7 +89,6 @@
     <li>配置 Cloudflare Email 路由，将邮件转发到您的 Worker</li>
   </ol>
 </div>
-
 
 ### 📧 绑定域名与配置邮件路由
 
@@ -134,12 +125,6 @@
 
 ```
 标签|URL,标签|URL
-```
-
-最多 5 个，默认值：
-
-```
-临时Gmail邮箱|https://smailpro.com/temporary-email,真实地址生成器|https://ip.alice7.eu.org/
 ```
 
 示例：
@@ -189,30 +174,6 @@ wrangler secret put MIGRATION_SECRET
 加密覆盖：邮箱地址、邮件主题/正文/HTML、发件人名称、附件内容与文件名、站内聊天内容、聊天附件。邮箱密码仍使用 PBKDF2-SHA256（10 万次迭代）单向哈希，不可逆。详细设计见 [`修改说明.md`](./修改说明.md)。
 
 旧库升级：先备份 D1，用 `GET /api/admin/encryption/status` 查看待迁移数量，再循环 `POST /api/admin/encryption/migrate`（请求头 `X-Migration-Secret`）分批完成加密。迁移会跳过解密失败的数据行，不会用错误占位文本覆盖原内容。
-
----
-
-## <a id="development"></a>💻 本地开发
-
-### 前置要求
-
-- **Node.js** >= 18
-- **pnpm** >= 8（推荐使用 `npm install -g pnpm` 安装）
-- **Cloudflare 账户**（用于后端开发和部署）
-
-### 环境变量配置
-
-在 `frontend/` 目录下创建 `.env` 文件（参考 `.env.example`）：
-
-```bash
-# 邮箱域名配置（多域名以逗号分隔）
-VITE_EMAIL_DOMAIN=example.com,abc.com,def.com
-
-# API 源地址（不要带 /api）
-# 前后端同域部署（Worker 同时托管前端静态资源）时留空；
-# 前后端分离部署时填写 API 源，例如 https://api.example.com
-VITE_API_BASE_URL=
-```
 
 ---
 ## 🔧 技术栈
