@@ -28,69 +28,37 @@
 
 </div>
 
+## ✨ 项目简介
 
-## <a id="features"></a>✨ 功能特点
+本项目采用 **`1 个 Cloudflare Worker + 1 个 Cloudflare D1 + 2 个 Cloudflare Pages** 部署方案
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0;">
-  <div>
-    <h4>✨ 即时创建</h4>
-    <p>无需注册，一键生成永久匿名邮箱地址，即时可用</p>
-  </div>
-  <div>
-    <h4>🔒 隐私保护</h4>
-    <p>保护您的真实邮箱，避免垃圾邮件和信息泄露，完全匿名使用</p>
-  </div>
-  <div>
-    <h4>🔐 密码登录</h4>
-    <p>每个邮箱拥有独立高强度密码，可跨设备随时登录找回</p>
-  </div>
-  <div>
-    <h4>🔄 多账号切换</h4>
-    <p>登录过的邮箱自动保存到浏览器，顶部一键切换，管理多个账号更方便</p>
-  </div>
-  <div>
-    <h4>⚡ 实时接收</h4>
-    <p>实时接收邮件，支持自动刷新（10秒间隔），不错过任何邮件</p>
-  </div>
-  <div>
-    <h4>🌐 全球可用</h4>
-    <p>基于Cloudflare构建，全球边缘网络加速</p>
-  </div>
-  <div>
-    <h4>🌙 深色模式</h4>
-    <p>支持深色/浅色主题切换，保护视力</p>
-  </div>
-  <div>
-    <h4>🌍 多语言</h4>
-    <p>支持中英文界面，满足不同用户需求</p>
-  </div>
-  <div>
-    <h4>📱 响应式设计</h4>
-    <p>完美适配各种设备，从手机到桌面</p>
-  </div>
-</div>
+通过环境变量区分站点模式，实现两套完全独立的前端界面，共用同一个后端配置中心。邮箱后缀列表统一由 Worker 的 `/api/config` 接口提供，后续只需修改 Worker 环境变量即可新增、删除邮箱后缀，无需重新构建两个 Pages 项目。
+
+## 🎯 双站点设计
+
+| 站点 | 模式 | 说明 |
+|---|---|---|
+| **临时邮箱站点（默认）** | `VITE_SITE_MODE = temp` | 极简风格，一键生成临时邮箱。适合一次性注册、接收验证码等用完即走的场景。顶部标题可点击跳转到永久站点。 |
+| **永久/匿名邮箱站点** | `VITE_SITE_MODE = perm` | 功能完整，支持创建邮箱、密码登录、多账号切换。邮箱可长期使用并随时找回。顶部标题可点击跳转回临时站点。 |
+
+## 🚀 核心特性
+
+- **双站点一体** - 同一个仓库部署两个独立网站，互相跳转
+- **一键部署 Worker** - 支持 `deploy.workers.cloudflare.com` 一键部署后端
+- **统一域名管理** - 邮箱后缀由 Worker 环境变量 `ALLOWED_EMAIL_DOMAINS` 控制，前端动态获取
+- **安全加固** - 收紧 CORS、仅接收已创建邮箱、HTML 邮件沙箱渲染
+- **实时收信** - 基于 Cloudflare Email Routing，邮件秒收
+- **多域名支持** - 可同时配置多个邮箱后缀
+- **多账号切换** - 登录过的邮箱自动保存在本地，可一键切换
+- **暗色/亮色主题** - 自适应主题切换
+- **多语言支持** - 中英文切换
+- **响应式设计** - 完美适配 PC、平板、手机
+- **附件支持** - 支持查看、预览及下载邮件附件
+- **Cloudflare 网页端** - 全程均可在网页端完成、极简操作
 
 ---
-
-## <a id="screenshots"></a>📸 界面预览
-
-> 截图待补充
-
-| 页面 | 说明 |
-|------|------|
-| 🏠 **首页** | 引导用户创建或登录邮箱，展示功能介绍、使用场景、FAQ |
-| 📬 **收件箱** | 登录后显示邮件列表，支持查看邮件详情、附件 |
-| 🔄 **多账号切换** | 顶部下拉菜单，在多个已保存邮箱间快速切换 |
-
----
-
-## <a id="deployment"></a>🚀 快速部署
-
-Miaoyou 现在采用全新的一体化部署方式，前端和后端整合为一个 Cloudflare Worker，部署更加简单！
 
 ### 🎯 部署方式选择
-
-我们提供两种部署方式，您可以根据需求选择：
 
 #### 方式一：一键部署（推荐新手）
 
@@ -130,45 +98,13 @@ Miaoyou 现在采用全新的一体化部署方式，前端和后端整合为一
   </ol>
 </div>
 
-#### 方式二：Fork 后通过 Github Action 自定义部署（推荐进阶用户）
 
-<div style="background-color: #2d2d2d; color: #ffffff; padding: 15px; border-radius: 5px; margin: 15px 0;">
-  <h4>✅ 优点：</h4>
-  <ul>
-    <li>可以获得后续代码更新</li>
-    <li>完全自定义配置</li>
-    <li>更好的版本控制</li>
-    <li>通过 GitHub Action 自动部署，更加安全便捷</li>
-  </ul>
-  
-  <h4>❌ 缺点：</h4>
-  <ul>
-    <li>需要一定的技术基础</li>
-    <li>需要手动创建数据库和配置密钥</li>
-  </ul>
-  
-  <h4>📋 部署步骤：</h4>
-  <ol>
-    <li>Fork 本项目到您的 GitHub 账户</li>
-    <li>在 Cloudflare Dashboard 中创建一个 D1 数据库，并记录下数据库的 <strong>database_name</strong> 和 <strong>database_id</strong></li>
-    <li>在您的 GitHub 仓库中, 前往 <strong>Settings</strong> > <strong>Secrets and variables</strong> > <strong>Actions</strong></li>
-    <li>点击 <strong>New repository secret</strong> 并添加以下五个密钥：
-      <ul>
-        <li><code>CF_API_TOKEN</code>: 你的 Cloudflare API Token。你可以在 <a href="https://dash.cloudflare.com/profile/api-tokens" target="_blank">这里</a> 创建，使用 "Edit Cloudflare Workers" 模板即可。</li>
-        <li><code>CF_ACCOUNT_ID</code>: 你的 Cloudflare 账户 ID。你可以在 Workers 页面的右侧找到。</li>
-        <li><code>D1_DATABASE_ID</code>: 你在第二步中创建的 D1 数据库的 ID。</li>
-        <li><code>D1_DATABASE_NAME</code>: 你在第二步中创建的 D1 数据库的名称。</li>
-        <li><code>VITE_EMAIL_DOMAIN</code>: 你的域名列表，多个域名用逗号 ',' 分割 (例如: example.com,test.com)。</li>
-      </ul>
-    </li>
-    <li>完成以上步骤后，项目将在每次推送到 <code>main</code> 分支时自动部署。你也可以在 Actions 页面手动触发部署。</li>
-    <li>部署完成后，为你的 Worker 绑定一个自定义域名。</li>
-    <li>最后，配置 Cloudflare Email 路由，将邮件转发到你的 Worker。</li>
-  </ol>
-</div>
+### 📧 绑定域名与配置邮件路由
 
-### 📧 配置邮件路由
-
+1. **自定义域名**：为 `myou-mail-temp` 绑定 `temp.yourdomain.com`，为 `myou-mail-perm` 绑定 `mail.yourdomain.com`
+2. **回填跳转**：两个 Pages 都绑好域名后，将 `VITE_OTHER_SITE_URL` 改成对方的真实域名，点 `Retry deployment` 重新构建
+3. **Email Routing**：在 Cloudflare 控制台为每个邮箱后缀域名启用 `Email Routing`，并设置 `Catch-all` 转发到刚部署的 Worker
+   
 无论选择哪种部署方式，都需要配置 Cloudflare Email 路由：
 
 <div style="background-color: #2d2d2d; color: #ffffff; padding: 15px; border-radius: 5px; margin: 15px 0;">
@@ -278,74 +214,24 @@ VITE_EMAIL_DOMAIN=example.com,abc.com,def.com
 VITE_API_BASE_URL=
 ```
 
-### 🚀 启动开发服务器
-
-```bash
-# 1. 安装所有依赖
-pnpm install
-
-# 2. 启动前端开发服务器（默认端口 5173）
-pnpm dev:frontend
-
-# 3. 启动后端开发服务器（默认端口 8787，需要 wrangler）
-pnpm dev:backend
-
-# 前端开发服务器会自动将 /api 请求代理到后端
-```
-
-### 前端构建
-
-```bash
-# 构建生产版本
-pnpm run build
-
-# 预览构建结果
-pnpm run preview
-```
-
-### ⚙️ 部署到 Cloudflare
-
-```bash
-# 部署 Worker（需要配置 wrangler.toml）
-pnpm run deploy
-```
-
-### 前端访问
-
-| 环境 | 地址 |
-|------|------|
-| 本地开发 | http://localhost:5173 |
-| API 地址 | /api（通过 Vite proxy） |
-
-> **注意**：本地开发时，邮件接收功能需要 Cloudflare Email Routing 配合，仅在生产环境可用。
-
 ---
+## 🔧 技术栈
 
-## <a id="tech-stack"></a>🔧 技术栈
+### 🎨 前端
+- **React 18** - 用户界面库
+- **TypeScript** - 类型安全的 JavaScript 超集
+- **Tailwind CSS** - 实用优先的 CSS 框架
+- **Vite** - 现代前端构建工具
+- **React Router v6** - 前端路由
+- **i18next** - 国际化解决方案
+- **Font Awesome** - 图标库
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 20px 0;">
-  <div>
-    <h3>🎨 前端</h3>
-    <ul>
-      <li><strong>React 18</strong> - 用户界面库</li>
-      <li><strong>TypeScript</strong> - 类型安全的JavaScript超集</li>
-      <li><strong>Tailwind CSS</strong> - 实用优先的CSS框架</li>
-      <li><strong>Vite</strong> - 现代前端构建工具</li>
-      <li><strong>React Router v6</strong> - 前端路由</li>
-      <li><strong>i18next</strong> - 国际化解决方案</li>
-      <li><strong>Font Awesome</strong> - 图标库</li>
-    </ul>
-  </div>
-  <div>
-    <h3>⚙️ 后端</h3>
-    <ul>
-      <li><strong>Cloudflare Workers</strong> - 边缘计算平台</li>
-      <li><strong>Hono</strong> - 轻量级Web框架</li>
-      <li><strong>Cloudflare D1</strong> - 边缘SQL数据库（SQLite）</li>
-      <li><strong>Cloudflare Email Workers</strong> - 邮件处理服务</li>
-    </ul>
-  </div>
-</div>
+### ⚙️ 后端
+- **Cloudflare Workers** - 边缘计算平台
+- **Hono** - 轻量级 Web 框架
+- **Cloudflare D1** - 边缘 SQL 数据库（SQLite）
+- **Cloudflare Email Workers** - 邮件处理服务
+
 
 ## <a id="project-structure"></a>📁 项目结构
 
@@ -394,7 +280,7 @@ Miaoyou/
 ## 🔑 核心功能详解
 
 ### 邮箱创建
-- **随机创建**：系统自动生成12位随机用户名和30+位高强度密码
+- **随机创建**：系统自动生成随机用户名和高强度密码
 - **自定义创建**：用户可自定义用户名和密码
 - **多域名支持**：支持配置多个邮箱域名供用户选择
 
@@ -402,24 +288,39 @@ Miaoyou/
 - 通过完整邮箱地址和密码登录
 - 登录信息保存到浏览器 localStorage，下次自动恢复会话
 
-### 多账号管理（v2 新增）
+### 多账号管理
 - 所有登录过的邮箱自动保存在浏览器本地
-- 顶部导航栏显示切换按钮（至少2个账号时出现）
-- 下拉列表展示所有已保存账号，当前账号高亮显示
-- 支持单个删除或一键清空所有已保存账号（保留当前账号）
+- 顶部导航栏一键切换多个邮箱账号
+- 支持删除单个账号或清空全部已保存账号
 
 ### 邮件功能
-- 实时接收邮件（自动刷新每10秒）
+- 实时接收邮件（自动刷新）
 - 查看邮件详情（发件人、主题、正文、附件）
 - 邮件缓存机制，减少重复请求
-- 24小时后自动清理邮件
+- 支持附件预览与下载
+
+## 🔐 安全说明
+
+本项目已针对外部可达风险做基础加固：
+
+- **CORS 限制** - 仅允许自有 Pages 域名、`.pages.dev` 及本地开发调用 API
+- **拒收未创建邮箱** - 只有曾经创建过的邮箱地址才会接收邮件，有效过滤 Catch-all 垃圾邮件
+- **HTML 沙箱渲染** - 使用 `<iframe sandbox>` 隔离渲染 HTML 邮件，降低 XSS 风险
+- **全站 HTTPS** - 全部资源走 Cloudflare HTTPS 加密传输
+
+> **提醒：** 请勿用此邮箱接收银行、支付、身份证、密钥找回等极度敏感信息。它更适合临时注册、验证码接收等场景。
 
 ---
 
 ## 👥 贡献指南
 
-欢迎提交Pull Request或Issue来改进这个项目！
+欢迎提交 Pull Request 或 Issue 来改进这个项目！
 
 ## 📄 许可证
 
 [MIT License](./LICENSE)
+
+## 💖 致谢
+
+- [Cloudflare](https://www.cloudflare.com/) - 提供 Workers、Pages、D1、Email Routing 等免费服务
+- 所有为开源社区贡献的开发者们
